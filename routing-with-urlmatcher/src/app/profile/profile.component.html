@@ -1,0 +1,5 @@
+<p>
+    Hello {{ username$ | async }}!
+</p>
+<p>Your password is <span *ngIf="isShow">{{password$ | async }}</span></p>
+<button (click)="showPwd()">show password</button>
