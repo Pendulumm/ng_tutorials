@@ -8,7 +8,6 @@ import { authGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
   {
     path: 'compose',
     component: ComposeMessageComponent,
@@ -24,7 +23,7 @@ const appRoutes: Routes = [
     loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
     data: { preload: true }
   },
-
+  { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
   // { path: '**', redirectTo: '/superheroes', pathMatch: 'prefix' },
   { path: '**', component: PageNotFoundComponent },
 ];
