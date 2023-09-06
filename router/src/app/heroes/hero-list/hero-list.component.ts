@@ -26,10 +26,11 @@ export class HeroListComponent implements OnInit {
   ngOnInit() {
     this.heroes$ = this.route.paramMap.pipe(
       switchMap(params => {
-        /* console.log('hero-list route>>>', this.route);
-        console.log('hero-id params>>>', params);
-        console.log('hero-id params id>>>', params.get('id'));
-        console.log('------------------------------------------------'); */
+        // console.log('hero-list route>>>', this.route);
+        // console.log('hero-id params>>>', params);
+        // console.log('hero-id params id>>>', params.get('id'));
+        // console.log('------------------------------------------------');
+        
 
         this.selectedId = parseInt(params.get('id')!, 10);
         return this.service.getHeroes();
