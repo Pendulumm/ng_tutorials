@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { authGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+import { ComposeMessageAgainComponent } from './compose-message/compose-message-again.component';
 
 const appRoutes: Routes = [
   {
@@ -14,13 +15,21 @@ const appRoutes: Routes = [
     outlet: 'popup'
   },
   {
+    path: 'again',
+    component: ComposeMessageAgainComponent,
+    outlet: 'popupAgain'
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canMatch: [authGuard]
   },
   {
     path: 'crisis-center',
-    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
+    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => {
+      // console.log('m>>>', m);
+      return m.CrisisCenterModule
+    }),
     data: { preload: true }
   },
   { path: '', redirectTo: '/superheroes', pathMatch: 'full' },

@@ -17,12 +17,20 @@ export class CrisisListComponent implements OnInit {
 
   constructor(
     private service: CrisisService,
-    private route: ActivatedRoute
-  ) {}
+    private _route: ActivatedRoute
+  ) { }
+
+  public get route() {
+    return this._route;
+  }
 
   ngOnInit() {
     this.crises$ = this.route.firstChild?.paramMap.pipe(
       switchMap(params => {
+        console.log('crisis-list route >>>', this.route);
+        // console.log('crisis-list route firstChild>>>', this.route.firstChild);
+        // console.log('crisis-list params>>>', params);
+
         this.selectedId = parseInt(params.get('id')!, 10);
         return this.service.getCrises();
       })

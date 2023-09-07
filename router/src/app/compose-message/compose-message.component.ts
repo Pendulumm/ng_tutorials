@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './compose-message.component.html',
   styleUrls: ['./compose-message.component.css']
 })
-export class ComposeMessageComponent {
+export class ComposeMessageComponent implements OnInit {
   details = '';
   message = '';
   sending = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+  ngOnInit(): void {
+    console.log('compose-message route>>>', this.route);
+  }
 
   send() {
     this.sending = true;
@@ -30,6 +36,10 @@ export class ComposeMessageComponent {
   closePopup() {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate([{outlets: {popup: null}}], {relativeTo: this.route.parent});
+    this.router.navigate([{ outlets: { popup: null, popupAgain: null } }], { relativeTo: this.route.parent });
+  }
+
+  back(): void {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

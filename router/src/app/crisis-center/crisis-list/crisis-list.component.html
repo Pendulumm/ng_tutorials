@@ -7,3 +7,6 @@
 </ul>
 
 <router-outlet></router-outlet>
+
+<a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+<router-outlet name="popup"></router-outlet>

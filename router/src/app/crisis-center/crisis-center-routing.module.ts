@@ -8,6 +8,7 @@ import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 
 import { canDeactivateGuard } from '../can-deactivate.guard';
 import { crisisDetailResolver } from './crisis-detail-resolver';
+import { ComposeMessageComponent } from '../compose-message/compose-message.component';
 
 const crisisCenterRoutes: Routes = [
   {
@@ -29,9 +30,14 @@ const crisisCenterRoutes: Routes = [
           {
             path: '',
             component: CrisisCenterHomeComponent
-          }
+          },
+          {
+            path: 'compose',
+            component: ComposeMessageComponent,
+            outlet: 'popup'
+          },
         ]
-      }
+      },
     ]
   }
 ];

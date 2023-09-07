@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChildrenOutletContexts, Router } from '@angular/router';
+import { ActivatedRoute, ChildrenOutletContexts, Router } from '@angular/router';
 import { slideInAnimation } from './animations';
 import { ParamsMapService } from './params-map.service';
 
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   constructor(
     private contexts: ChildrenOutletContexts,
     private router: Router,
+    private route: ActivatedRoute,
     private paramServ: ParamsMapService
   ) { }
 
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
   pageForward() {
     let _id = parseInt(this.paramServ.params.get('id') as string, 10);
     // console.log('serv id>>> ', _id);
+    console.log('app route>>> ', this.route);
 
     if (this.id === undefined || this.id === _id) {
       this.id = ++_id;
