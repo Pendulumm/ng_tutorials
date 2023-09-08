@@ -41,6 +41,10 @@ export class CrisisDetailComponent implements OnInit {
   }
 
   canDeactivate(): Observable<boolean> | boolean {
+    // If this method returns false, then navigation can not be away from current route
+    // return false;
+    console.log('crisis-detail deactivate...');
+
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
     if (!this.crisis || this.crisis.name === this.editName) {
       return true;

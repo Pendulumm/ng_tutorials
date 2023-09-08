@@ -6,4 +6,7 @@ export interface CanComponentDeactivate {
 }
 
 export const canDeactivateGuard: CanDeactivateFn<CanComponentDeactivate> =
-    (component: CanComponentDeactivate) => component.canDeactivate ? component.canDeactivate() : true;
+  (component: CanComponentDeactivate) => {
+    console.log('canDeactivateGuard component', component);
+    return component.canDeactivate ? component.canDeactivate() : true;
+  }
