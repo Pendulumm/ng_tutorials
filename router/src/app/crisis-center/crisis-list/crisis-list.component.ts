@@ -27,7 +27,7 @@ export class CrisisListComponent implements OnInit {
   ngOnInit() {
     this.crises$ = this.route.firstChild?.paramMap.pipe(
       switchMap(params => {
-        console.log('crisis-list route >>>', this.route);
+        // console.log('crisis-list route >>>', this.route);
         // console.log('crisis-list route firstChild>>>', this.route.firstChild);
         // console.log('crisis-list params>>>', params);
 

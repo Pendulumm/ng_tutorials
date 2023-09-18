@@ -6,6 +6,10 @@ import {
 import { AuthService } from './auth.service';
 
 export const authGuard = () => {
+  // if returns fault
+  // If any guard returns `false`, the `Route` is skipped for matching and other `Route` configurations are processed instead.
+  // return false;
+
   const router = inject(Router);
   const authService = inject(AuthService);
 

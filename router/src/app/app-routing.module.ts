@@ -32,6 +32,13 @@ const appRoutes: Routes = [
     }),
     data: { preload: true }
   },
+  // {
+  //   path: 'admin',
+  //   loadComponent: () => import('./admin/admin-cannotFound').then(c => {
+  //     // console.log('m>>>', c);
+  //     return c.AdminCannotFoundComponent;
+  //   })
+  // },
   { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
   // { path: '**', redirectTo: '/superheroes', pathMatch: 'prefix' },
   { path: '**', component: PageNotFoundComponent },
