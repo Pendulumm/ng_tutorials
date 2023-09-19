@@ -23,8 +23,8 @@ export class CrisisDetailComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(data => {
-        console.log('crisis-detail route>>> ', this.route);
-        console.log('crisis-detail data>>> ', data);
+        // console.log('crisis-detail route>>> ', this.route);
+        // console.log('crisis-detail data>>> ', data);
         const crisis: Crisis = data['crisis'];
         this.editName = crisis.name;
         this.crisis = crisis;
@@ -45,10 +45,10 @@ export class CrisisDetailComponent implements OnInit {
     // If this method returns false, then navigation can not be away from current route
     // return false;
     // ----------------------------------------
-    console.log('crisis-detail deactivate...');
-    console.log('crisis >>', this.crisis);
-    console.log('crisis.name >>', this.crisis.name);
-    console.log('editName >>', this.editName);
+    // console.log('crisis-detail deactivate...');
+    // console.log('crisis >>', this.crisis);
+    // console.log('crisis.name >>', this.crisis.name);
+    // console.log('editName >>', this.editName);
 
 
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged

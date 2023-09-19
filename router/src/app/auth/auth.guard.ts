@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import {
   Router,
   NavigationExtras,
+  UrlCreationOptions,
 } from '@angular/router';
 import { AuthService } from './auth.service';
 
@@ -13,10 +14,11 @@ export const authGuard = () => {
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  console.log('authGuard#canActivate called');
+  // console.log('authGuard#canActivate called');
   // authService.login().subscribe(auth => {
   //   console.log('auth is', auth);
   // })
+  // console.log('isLoggedIn >>>', authService.isLoggedIn);
 
   if (authService.isLoggedIn) {
     return true;
@@ -27,7 +29,7 @@ export const authGuard = () => {
 
   // Set our navigation extras object
   // that contains our global query params and fragment
-  const navigationExtras: NavigationExtras = {
+  const navigationExtras: UrlCreationOptions = {
     queryParams: { session_id: sessionId },
     fragment: 'anchor'
   };

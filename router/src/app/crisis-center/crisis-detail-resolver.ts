@@ -10,9 +10,12 @@ export const crisisDetailResolver: ResolveFn<Crisis> = (route: ActivatedRouteSna
   const router = inject(Router);
   const cs = inject(CrisisService);
   const id = route.paramMap.get('id')!;
+  // console.log('crisisDetailResolver id >>>', id);
 
   return cs.getCrisis(id).pipe(
     mergeMap(crisis => {
+      console.log('mergeMap param>>>', crisis);
+
       if (crisis) {
         return of(crisis);
       } else {  // id not found

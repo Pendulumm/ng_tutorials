@@ -19,7 +19,12 @@ export class CrisisService {
 
   getCrisis(id: number | string) {
     return this.getCrises().pipe(
-      map(crises => crises.find(crisis => crisis.id === +id)!)
+      map(crises => {
+        // console.log('crises >>>', crises);
+        // console.log('param id type >>>', typeof id);
+        // console.log('find the crisis >>>', crises.find(crisis => crisis.id === +id)!);
+        return crises.find(crisis => crisis.id === +id)!
+      })
     );
   }
 
